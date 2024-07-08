@@ -1,0 +1,65 @@
+locals {
+  net_interface = "ens4"
+  vm_user       = "stanislav_bebej"
+  wg_port       = 51820
+}
+
+resource "google_service_account" "default" {
+  account_id   = "sa-pi-hole-${terraform.workspace}"
+  display_name = "PiHole Service Account"
+}
+
+resource "google_compute_instance" "vm_instance" {
+  name         = "pi-hole-${terraform.workspace}"
+  machine_type = var.machine_type
+  labels = {
+    env  = terraform.workspace
+    role = "pihole"
+  }
+
+  boot_disk {
+    initialize_params {
+      # https://cloud.google.com/compute/docs/images/os-details#debian
+      image = "debian-cloud/debian-12"
+    }
+  }
+
+  network_interface {
+    network = "default"
+
+    access_config {
+    }
+  }
+
+  metadata = {
+    "ssh-keys" = <<EOT
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDS+y+IyafKhgFWqa3oNlgXoihH6/XjBJeeqO9uCOD7v stanislav.bebej@aconic.eu
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIESV4CSjcjtXe7VM6VPrsFt33X1kFcUkEEZ3Uzlk+kEV stanislav@spectre-win
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPMmc5/e9XJeE9VYdw0L3JNEKtKQorXoPSMI0DxPcHzi stanislav@thinkcentre
+    EOT
+    "enable-osconfig" = true
+  }
+
+  metadata_startup_script = templatefile("bootstrap.sh", {
+    NET_INTERFACE = local.net_interface
+    VM_USER       = local.vm_user
+    WG_PORT       = local.wg_port
+  })
+
+  service_account {
+    email  = google_service_account.default.email
+    scopes = ["cloud-platform"]
+  }
+}
+
+resource "google_compute_firewall" "default" {
+  name    = "allow-wireguard"
+  network = "default"
+
+  allow {
+    protocol = "udp"
+    ports    = [local.wg_port]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+}
