@@ -32,12 +32,13 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   metadata = {
-    "ssh-keys" = <<EOT
+    block-project-ssh-keys = true
+    enable-osconfig        = true
+    ssh-keys               = <<EOT
       ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDS+y+IyafKhgFWqa3oNlgXoihH6/XjBJeeqO9uCOD7v stanislav.bebej@aconic.eu
       ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIESV4CSjcjtXe7VM6VPrsFt33X1kFcUkEEZ3Uzlk+kEV stanislav@spectre-win
       ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPMmc5/e9XJeE9VYdw0L3JNEKtKQorXoPSMI0DxPcHzi stanislav@thinkcentre
     EOT
-    "enable-osconfig" = true
   }
 
   metadata_startup_script = templatefile("${path.module}/bootstrap.sh", {
