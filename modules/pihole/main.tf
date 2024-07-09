@@ -5,12 +5,12 @@ locals {
 }
 
 resource "google_service_account" "default" {
-  account_id   = "sa-pi-hole-${terraform.workspace}"
+  account_id   = "sa-pi-hole-${var.environment}"
   display_name = "PiHole Service Account"
 }
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "pi-hole-${terraform.workspace}"
+  name         = "pi-hole-${var.environment}"
   machine_type = var.machine_type
   labels = {
     env  = terraform.workspace
@@ -40,7 +40,7 @@ resource "google_compute_instance" "vm_instance" {
     "enable-osconfig" = true
   }
 
-  metadata_startup_script = templatefile("bootstrap.sh", {
+  metadata_startup_script = templatefile("${path.module}/bootstrap.sh", {
     NET_INTERFACE = local.net_interface
     VM_USER       = local.vm_user
     WG_PORT       = local.wg_port
