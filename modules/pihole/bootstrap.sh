@@ -41,4 +41,4 @@ END
 curl -sSL https://install.pivpn.io | sudo bash -s -- --unattended /dev/shm/wireguard-setupVars.conf
 
 # Install OPS agent
-# curl -sSL https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh | sudo bash -s -- --also-install
+curl -sSL https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh | sudo bash -s -- --also-install
