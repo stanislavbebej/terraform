@@ -5,7 +5,7 @@ provider "google" {
 }
 
 module "pihole" {
-  source = "../../modules/pihole"
+  source = "github.com/stanislavbebej/terraform//modules/pihole?ref=devel"
 
   environment = "staging"
   gcp_project = "sb-devel"

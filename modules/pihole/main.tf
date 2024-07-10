@@ -13,7 +13,7 @@ resource "google_compute_instance" "vm_instance" {
   name         = "pi-hole-${var.environment}"
   machine_type = var.machine_type
   labels = {
-    env  = terraform.workspace
+    env  = var.environment
     role = "pihole"
   }
 
@@ -54,7 +54,7 @@ resource "google_compute_instance" "vm_instance" {
 }
 
 resource "google_compute_firewall" "default" {
-  name    = "allow-wireguard"
+  name    = "allow-wireguard-${var.environment}"
   network = "default"
 
   allow {
