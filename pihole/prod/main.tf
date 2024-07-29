@@ -1,5 +1,5 @@
 provider "google" {
-  project = "sb-devel"
+  project = "support-infra"
   region  = "us-east1"
   zone    = "us-east1-b"
 }
@@ -7,8 +7,8 @@ provider "google" {
 module "pihole" {
   source = "github.com/stanislavbebej/terraform//modules/pihole?ref=devel"
 
-  environment = "stage"
-  gcp_project = "sb-devel"
+  environment = "prod"
+  gcp_project = "support-infra"
 }
 
 output "ip" {

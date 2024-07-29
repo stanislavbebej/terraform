@@ -1,6 +1,6 @@
 terraform {
   cloud {
-    organization = "gcp-sb-devel"
+    organization = "gcp-support-infra"
 
     workspaces {
       name = "pihole"
