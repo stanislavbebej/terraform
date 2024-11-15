@@ -1,0 +1,74 @@
+name: Pre-commit run
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches-ignore:
+      - pre-commit-run/**
+  workflow_dispatch:
+
+env:
+  TFDOCS_VERSION: v0.19.0
+  TFLINT_VERSION: v0.53.0
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  run:
+    name: Pre-commit check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Evaluate branch name
+        id: ref
+        run: echo "name=${REF##refs/heads/}" >>$GITHUB_OUTPUT
+        env:
+          REF: ${{ github.head_ref || github.ref }}
+
+      # Install pre-commit dependencies
+      - name: Install tflint
+        run: |
+          wget -nv -O /dev/shm/tflint.zip https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_linux_amd64.zip
+          unzip -d $HOME/bin /dev/shm/tflint.zip
+          echo "$HOME/bin" >>$GITHUB_PATH
+
+      - name: Install terraform-docs
+        run: |
+          wget -nv -O - https://github.com/terraform-docs/terraform-docs/releases/download/${TFDOCS_VERSION}/terraform-docs-${TFDOCS_VERSION}-linux-amd64.tar.gz | tar -zxvf - -C $HOME/bin terraform-docs
+          echo "$HOME/bin" >>$GITHUB_PATH
+
+      # Setup pre-commit
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Add cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
+
+      - name: Initialize pre-commit
+        run: pre-commit install
+
+      - name: Check
+        run: pre-commit run --all-files
+
+      # Create PR if needed
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        if: always()
+        with:
+          title: "chore(pre-commit): auto-format code on ${{ steps.ref.outputs.name }}"
+          commit-message: "chore(pre-commit): auto-format code"
+          body: Reformat code according to pre-defined rules
+          branch: pre-commit-run/${{ steps.ref.outputs.name }}
+          base: ${{ steps.ref.outputs.name }}
+          delete-branch: true
+          labels: bot
