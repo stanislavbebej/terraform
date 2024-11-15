@@ -7,8 +7,8 @@ provider "google" {
 module "pihole" {
   source = "../../modules/pihole"
 
-  environment  = "local"
-  gcp_project  = "sb-devel"
+  environment = "local"
+  gcp_project = "sb-devel"
   # machine_type = "e2-standard-2"
 }
 

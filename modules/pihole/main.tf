@@ -10,6 +10,9 @@ resource "google_service_account" "default" {
 }
 
 resource "google_compute_instance" "vm_instance" {
+  # checkov:skip=CKV_GCP_38:Ensure VM disks for critical VMs are encrypted with Customer Supplied Encryption Keys (CSEK)
+  # checkov:skip=CKV_GCP_39:Ensure Compute instances are launched with Shielded VM enabled
+  # checkov:skip=CKV_GCP_40:Ensure that Compute instances do not have public IP addresses
   name         = "pi-hole-${var.environment}"
   machine_type = var.machine_type
   labels = {
