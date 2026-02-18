@@ -39,9 +39,9 @@ resource "google_compute_instance" "vm_instance" {
     enable-osconfig        = true
     ssh-keys               = <<EOT
       ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDS+y+IyafKhgFWqa3oNlgXoihH6/XjBJeeqO9uCOD7v stanislav.bebej@aconic.eu
-      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIESV4CSjcjtXe7VM6VPrsFt33X1kFcUkEEZ3Uzlk+kEV stanislav@spectre-win
-      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPMmc5/e9XJeE9VYdw0L3JNEKtKQorXoPSMI0DxPcHzi stanislav@thinkcentre
-      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINL0SbjzTRSBW+8M2zRxgtNJQNSPWvJGNSaqV1LX8y8R JuiceSSH
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIECW66qaew8POZCHQKg9B9t2YM+1ptPh6wZaD5OlBjxK rpi-pihole
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFKGRjPnYbiBdrTH6hXLrt2Q17HAt0gUqOWfFwKAmwes spectre-lin
+      ${local.vm_user}:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPyAgsr34dcesH47pKL2oGMTnyD2BQNtWaYPToJGOwpY fedora@external
     EOT
   }
 
