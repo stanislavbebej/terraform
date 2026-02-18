@@ -33,6 +33,8 @@ jobs:
           REF: ${{ github.head_ref || github.ref }}
 
       # Install pre-commit dependencies
+      - uses: hashicorp/setup-terraform@v3
+
       - name: Install tflint
         run: |
           wget -nv -O /dev/shm/tflint.zip https://github.com/terraform-linters/tflint/releases/download/${TFLINT_VERSION}/tflint_linux_amd64.zip
