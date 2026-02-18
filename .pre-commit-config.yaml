@@ -6,7 +6,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -14,21 +14,21 @@ repos:
       - id: check-added-large-files
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.96.2
+    rev: v1.105.0
     hooks:
       - id: terraform_tflint
       - id: terraform_fmt
       - id: terraform_docs
 
   - repo: https://github.com/bridgecrewio/checkov
-    rev: 3.2.276
+    rev: 3.2.504
     hooks:
       - id: checkov
         args:
           - --quiet
 
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v3.6.0
+    rev: v4.4.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
