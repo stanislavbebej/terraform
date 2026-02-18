@@ -5,14 +5,14 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 5.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.14.5 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 7.20.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | >= 5.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 7.20.0 |
 
 ## Modules
 
@@ -22,11 +22,11 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_compute_firewall.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall) | resource |
-| [google_compute_instance.vm_instance](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance) | resource |
-| [google_project_iam_member.logging_log_writer](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.monitoring_metric_writer](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_service_account.default](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_compute_firewall.default](https://registry.terraform.io/providers/hashicorp/google/7.20.0/docs/resources/compute_firewall) | resource |
+| [google_compute_instance.vm_instance](https://registry.terraform.io/providers/hashicorp/google/7.20.0/docs/resources/compute_instance) | resource |
+| [google_project_iam_member.logging_log_writer](https://registry.terraform.io/providers/hashicorp/google/7.20.0/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.monitoring_metric_writer](https://registry.terraform.io/providers/hashicorp/google/7.20.0/docs/resources/project_iam_member) | resource |
+| [google_service_account.default](https://registry.terraform.io/providers/hashicorp/google/7.20.0/docs/resources/service_account) | resource |
 
 ## Inputs
 
