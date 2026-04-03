@@ -12,6 +12,17 @@ updates:
         patterns:
           - "*"
 
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: fix(deps)
+    groups:
+      pre-commit-deps:
+        patterns:
+          - "*"
+
   - package-ecosystem: terraform
     directories:
       - modules/pihole
