@@ -30,10 +30,7 @@ pre-commit install --install-hooks
 pre-commit run --all-files
 ```
 
-It is also used in two GitHub workflows:
-
-1. [Pre-commit run](.github/workflows/pre-commit-run.yml): used as a **Required status check** to validate the whole repository contents. It creates a pull request if any changes were made during the workflow run.
-2. [Pre-commit update](.github/workflows/pre-commit-update.yml): a periodic maintenance workflow to keep the pre-commit hooks versions up-to-date.
+It is also used in the [Pre-commit run](.github/workflows/pre-commit-run.yml) GitHub workflow, which serves as a **Required status check** to validate the contents of the entire repository. If any changes are made during the workflow run, it automatically creates a pull request.
 
 ### Run
 
