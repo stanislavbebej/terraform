@@ -6,7 +6,7 @@ provider "google" {
 
 module "pihole" {
   # checkov:skip=CKV_TF_1:Ensure Terraform module sources use a commit hash
-  source = "github.com/stanislavbebej/terraform//modules/pihole?ref=v0.0.0" # x-release-please-version
+  source = "github.com/stanislavbebej/terraform//modules/pihole?ref=v0.1.0" # x-release-please-version
 
   environment = "prod"
   gcp_project = "support-infra"
