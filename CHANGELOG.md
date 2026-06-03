@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1](https://github.com/stanislavbebej/terraform/compare/v0.1.0...v0.1.1) (2026-06-03)
+
+
+### Bug Fixes
+
+* **deps:** bump googleapis/release-please-action ([236231a](https://github.com/stanislavbebej/terraform/commit/236231abd9c1c6af93ed32bf6432be6f6daf4bd7))
+* **deps:** bump hashicorp/google ([de0a82f](https://github.com/stanislavbebej/terraform/commit/de0a82f7ecf827157ef2c9a5ebcdb4e3cc8ef6f8))
+* **deps:** bump the pre-commit-deps group across 1 directory with 2 updates ([1f41230](https://github.com/stanislavbebej/terraform/commit/1f412301ab8eebff4e46bff4bd12aa1432d9816a))
+
 ## 0.1.0 (2026-04-03)
 
 
