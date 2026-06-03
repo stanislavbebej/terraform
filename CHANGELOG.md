@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/stanislavbebej/terraform/compare/v0.1.1...v0.1.2) (2026-06-03)
+
+
+### Bug Fixes
+
+* **stage:** change tag reference to default branch ([b6f96dd](https://github.com/stanislavbebej/terraform/commit/b6f96dd0ccc0688f073dbeea93849c9664f245a7))
+
 ## [0.1.1](https://github.com/stanislavbebej/terraform/compare/v0.1.0...v0.1.1) (2026-06-03)
 
 
