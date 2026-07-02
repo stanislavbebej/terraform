@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.2](https://github.com/stanislavbebej/terraform/compare/v0.1.1...v0.1.2) (2026-07-02)
+
+
+### Bug Fixes
+
+* **deps:** bump hashicorp/google ([282974f](https://github.com/stanislavbebej/terraform/commit/282974f6f74683ebe618ede8937ba8b052c8ea77))
+* **deps:** bump the actions-deps group with 2 updates ([4285d6d](https://github.com/stanislavbebej/terraform/commit/4285d6de3508ace7f4a58922c5ca5deb26c46c8f))
+* **deps:** bump the pre-commit-deps group with 2 updates ([2c3c3d1](https://github.com/stanislavbebej/terraform/commit/2c3c3d1aad2a4765e1c2e12de596270c8aa6ec0a))
+* **stage:** change tag reference to default branch ([b6f96dd](https://github.com/stanislavbebej/terraform/commit/b6f96dd0ccc0688f073dbeea93849c9664f245a7))
+
 ## [0.1.1](https://github.com/stanislavbebej/terraform/compare/v0.1.0...v0.1.1) (2026-06-03)
 
 
