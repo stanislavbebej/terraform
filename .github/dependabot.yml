@@ -26,9 +26,6 @@ updates:
   - package-ecosystem: terraform
     directories:
       - modules/pihole
-      - pihole/local
-      - pihole/prod
-      - pihole/stage
     schedule:
       interval: monthly
     commit-message:
