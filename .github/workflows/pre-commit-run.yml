@@ -60,7 +60,11 @@ jobs:
         run: pre-commit install
 
       - name: Check
-        run: pre-commit run --all-files
+        run: |
+          pwd
+          tree
+          find . -name providers.tf
+          pre-commit run --all-files
 
       # Create PR if needed
       - name: Create Pull Request
