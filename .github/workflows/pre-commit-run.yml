@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v7.0.1
 
       - name: Evaluate branch name
         id: ref
@@ -33,7 +33,7 @@ jobs:
           REF: ${{ github.head_ref || github.ref }}
 
       # Install pre-commit dependencies
-      - uses: hashicorp/setup-terraform@v4
+      - uses: hashicorp/setup-terraform@v4.0.1
 
       - name: Install tflint
         run: |
@@ -51,7 +51,7 @@ jobs:
         run: pip install pre-commit
 
       - name: Add cache
-        uses: actions/cache@v6
+        uses: actions/cache@v6.1.0
         with:
           path: ~/.cache/pre-commit
           key: ${{ runner.os }}-pre-commit-${{ hashFiles('**/.pre-commit-config.yaml') }}
@@ -68,7 +68,7 @@ jobs:
 
       # Create PR if needed
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@v8.1.1
         if: always()
         with:
           title: "chore(pre-commit): auto-format code on ${{ steps.ref.outputs.name }}"
