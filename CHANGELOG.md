@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.3](https://github.com/stanislavbebej/terraform/compare/v0.1.2...v0.1.3) (2026-10-15)
+
+
+### Bug Fixes
+
+* **deps:** bump hashicorp/google ([34e9f09](https://github.com/stanislavbebej/terraform/commit/34e9f09ebaf86690c63bd989a92bf1ce1585536b))
+* **deps:** bump the pre-commit-deps group with 2 updates ([55806ee](https://github.com/stanislavbebej/terraform/commit/55806ee04399ab42a733194017cd66a179a2c802))
+* **deps:** bump the pre-commit-deps group with 2 updates ([5d0ce2b](https://github.com/stanislavbebej/terraform/commit/5d0ce2b14240aa0c9e17dc008634611c29d325c8))
+* static files and actions-lock ([f434e42](https://github.com/stanislavbebej/terraform/commit/f434e423867d96ec74e879916277804eac9156d0))
+
 ## [0.1.2](https://github.com/stanislavbebej/terraform/compare/v0.1.1...v0.1.2) (2026-07-02)
 
 
