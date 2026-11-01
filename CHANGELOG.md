@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4](https://github.com/stanislavbebej/terraform/compare/v0.1.3...v0.1.4) (2026-11-01)
+
+
+### Bug Fixes
+
+* **deps:** bump hashicorp/google ([fd0e261](https://github.com/stanislavbebej/terraform/commit/fd0e2610a71e97cb13aaa9070370e13d193bb6df))
+* **deps:** bump the pre-commit-deps group with 2 updates ([3a20726](https://github.com/stanislavbebej/terraform/commit/3a207262c44e6cbc444917891899071540c1d162))
+
 ## [0.1.3](https://github.com/stanislavbebej/terraform/compare/v0.1.2...v0.1.3) (2026-10-15)
 
 
