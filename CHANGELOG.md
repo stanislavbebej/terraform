@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/stanislavbebej/terraform/compare/v0.1.4...v0.1.5) (2026-11-02)
+
+
+### Bug Fixes
+
+* provider version range ([c644222](https://github.com/stanislavbebej/terraform/commit/c644222cb4c67033baa7aa8e64125c01dad2b7cb))
+
 ## [0.1.4](https://github.com/stanislavbebej/terraform/compare/v0.1.3...v0.1.4) (2026-11-01)
 
 
